@@ -6,8 +6,10 @@ applications:
     buildpacks:
       - nodejs_buildpack
     command: node dist/index.js
-    health-check-type: process
-    no-route: true
+    health-check-type: http
+    health-check-http-endpoint: /health
     instances: 1
+    routes:
+      - route: biznetworkhackathon2026-alerts-mcp.cfapps.us10-001.hana.ondemand.com
     env:
       NODE_ENV: production
