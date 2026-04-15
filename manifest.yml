@@ -1,0 +1,13 @@
+---
+applications:
+  - name: alerts-mcp
+    memory: 256M
+    disk_quota: 512M
+    buildpacks:
+      - nodejs_buildpack
+    command: node dist/index.js
+    health-check-type: process
+    no-route: true
+    instances: 1
+    env:
+      NODE_ENV: production
