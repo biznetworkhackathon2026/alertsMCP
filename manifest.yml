@@ -5,9 +5,9 @@ applications:
     disk_quota: 512M
     buildpacks:
       - nodejs_buildpack
-    command: node dist/index.js
+    command: node dist/mcp-server.js
     health-check-type: http
-    health-check-http-endpoint: /health
+    health-check-http-endpoint: /
     instances: 1
     routes:
       - route: biznetworkhackathon2026-alerts-mcp.cfapps.us10-001.hana.ondemand.com

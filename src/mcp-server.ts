@@ -80,7 +80,7 @@ function createServer() {
 const app = createMcpExpressApp({ host: '0.0.0.0' });
 
 // Health check endpoint
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: any) => {
   res.json({
     name: 'alerts-mcp',
     version: '0.1.0',
@@ -91,7 +91,7 @@ app.get('/', (req, res) => {
 });
 
 // MCP endpoint - creates new server and transport per request (stateless)
-app.post('/mcp', async (req, res) => {
+app.post('/mcp', async (req: any, res: any) => {
   const server = createServer();
 
   try {
@@ -122,7 +122,7 @@ app.post('/mcp', async (req, res) => {
 });
 
 // Handle other methods
-app.get('/mcp', (req, res) => {
+app.get('/mcp', (req: any, res: any) => {
   res.status(405).json({
     jsonrpc: '2.0',
     error: { code: -32000, message: 'Method not allowed' },
@@ -130,7 +130,7 @@ app.get('/mcp', (req, res) => {
   });
 });
 
-app.delete('/mcp', (req, res) => {
+app.delete('/mcp', (req: any, res: any) => {
   res.status(405).json({
     jsonrpc: '2.0',
     error: { code: -32000, message: 'Method not allowed' },
